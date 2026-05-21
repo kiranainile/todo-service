@@ -1,7 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { ITodo } from 'src/app/modules/todo';
-import { uuidServices } from 'src/app/services/uuid';
 import { __values } from 'tslib';
+import { UuidServices } from 'src/app/services/uuid';
 
 @Component({
   selector: 'app-todo-form',
@@ -19,7 +19,7 @@ isInEditMode:boolean=false
 @Output() emitNewTodo: EventEmitter<ITodo> =new EventEmitter<ITodo>()
 @Output() emitUpdateTodo: EventEmitter<ITodo> =new EventEmitter<ITodo>()
   constructor(
-    private _uuidservices:uuidServices
+    private _uuidservices:UuidServices
   ) { }
 
 
