@@ -1,7 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { ITodo } from 'src/app/modules/todo';
 import { __values } from 'tslib';
-import { UuidServices } from 'src/app/services/uuid';
+// import { UuidServices } from '../../services/uuid';
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
@@ -18,7 +18,7 @@ isInEditMode:boolean=false
 @Output() emitNewTodo: EventEmitter<ITodo> =new EventEmitter<ITodo>()
 @Output() emitUpdateTodo: EventEmitter<ITodo> =new EventEmitter<ITodo>()
  constructor(
-  private _uuidservices: UuidServices
+  // private _uuidservice: UuidServices
 ) {}
 
 
@@ -40,7 +40,8 @@ ngOnChanges(changes: SimpleChanges): void {
      let NewTodo:ITodo={
       todoItem:this.todoItem.nativeElement.value,
       isComplated:this.isComplated.nativeElement.value=='true'? true:false,
-      todoId:this._uuidservices.uuid()
+      // todoId:this._uuidservice.uuid()
+      todoId:Date.now.toString()
 
      }
      console.log(NewTodo);
